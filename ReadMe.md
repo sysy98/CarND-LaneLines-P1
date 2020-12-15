@@ -27,7 +27,7 @@ I got this error and don't know how to fix it.
 **linalgerror: svd did not converge in linear least squares**
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible improvements to my pipeline
 
 I failed to complete the last challenge. I tried but cannot get a satisfied result.
 My idea is following:
