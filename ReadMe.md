@@ -1,4 +1,4 @@
-## Finding Lane Lines on the Road
+# Finding Lane Lines on the Road
 
 The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
@@ -11,7 +11,7 @@ My pipeline consisted of 5 steps.
 * Second, I used **Canny** detection and set high and low threshold to get edges.
 * Then, I used a **region mask** to limit the detection area.
 * Since theses edges are consist of points, I have to use **Hough transfrom** to find lane lines.
-* At last, I combine line image and original image by using **Weighted image**.
+* At last, I combine line image with original image by using **Weighted image**.
 ---
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function:
 * Distinguish the left and right lane lines by the slope of the straight line, while excluding infinite slope values.
