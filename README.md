@@ -1,7 +1,6 @@
 # **Finding Lane Lines on the Road**
 
-The goals this project is **find lane lines on the road**.
----
+* The goal of this project is **find lane lines on the road**.
 
 ### 1. Pipeline.
 
