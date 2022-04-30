@@ -1,8 +1,17 @@
-# **Finding Lane Lines on the Road** 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+
+# **CarND-LaneLines-P1** 
 The repository completes the project on [Udacity Self-Driving Car NanoDegree.](http://www.udacity.com/drive)
 The project algorithm is used to identify lane lines on the road in videos using Python and OpenCV.
+## Demo
 
-<img src="test_images/solidWhiteRight.jpg" width="480" alt="Combined Image" />
+<p align="center">
+  <img src="./videos/semantic.gif">
+</p>
+
+<p align="center">
+  <img src="./videos/rviz.gif">
+</p>
  
 ## Setup
 1. install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
@@ -38,14 +47,8 @@ Use `np.polyfit` to calculate slope and offset of averaged lane lines respective
 Use `cv2.line` method to connect left and right lane lines.
 - `weighted_img`: Use `cv2.addWeighted` method to return a image with lines drawn on it.
 
-### 2. Results
-
-<video width="480" controls loop>
-      <source src="test_videos_output/solidWhiteRight.mp4" type="video/mp4">
-</video>
-
-### 3. Shortcomings
+### 2. Shortcomings
 The results obtained by processing the challenge video did not meet expectations. Shadows on the road surface and different colored lines in the video affect the accuracy of the algorithm. Therefore, the algorithm is not robust enough.
 
-### 4. Possible improvements
+### 3. Possible improvements
 Apply color transforms, perspective transform or other methods.
