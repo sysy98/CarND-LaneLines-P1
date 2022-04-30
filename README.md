@@ -1,7 +1,9 @@
 # **Finding Lane Lines on the Road** 
-The repo complete the project on [![Udacity Self-Driving Car NanoDegree.](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+The repository completes the project on [Udacity Self-Driving Car NanoDegree.](http://www.udacity.com/drive)
 The project algorithm is used to identify lane lines on the road in videos using Python and OpenCV.
-![]()
+
+<img src="test_images/solidWhiteRight.jpg" width="480" alt="Combined Image" />
+ 
 ## Setup
 1. install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 2. Create an environment named `carlines` for the project.
@@ -13,17 +15,17 @@ conda env create -f carlines.yml
 ```sh
 conda activate carlines
 ```
--Linux:
+- Linux:
 ```sh
 source activate carlines
 ```
-4. Open the `pipeline1.ipynb` in the Jupyter Notebook.
+4. Open the [Pipeline1.ipynb](Pipeline1.ipynb) in the Jupyter Notebook.
 ```sh
 jupyter-notebook
 ```
 
 ## Overview
-### 1.Pipeline
+### 1. Pipeline
 The pipeline consists of following image processing functions:
 
 - `grayscale`: Convert the input image to grayscale using `cv2.cvtColor` method.
@@ -36,8 +38,14 @@ Use `np.polyfit` to calculate slope and offset of averaged lane lines respective
 Use `cv2.line` method to connect left and right lane lines.
 - `weighted_img`: Use `cv2.addWeighted` method to return a image with lines drawn on it.
 
-### 2. Shortcomings
+### 2. Results
+
+<video width="480" controls loop>
+      <source src="test_videos_output/solidWhiteRight.mp4" type="video/mp4">
+</video>
+
+### 3. Shortcomings
 The results obtained by processing the challenge video did not meet expectations. Shadows on the road surface and different colored lines in the video affect the accuracy of the algorithm. Therefore, the algorithm is not robust enough.
 
-### 3. Possible improvements
+### 4. Possible improvements
 Apply color transforms, perspective transform or other methods.
