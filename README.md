@@ -36,15 +36,16 @@ jupyter-notebook
 ### 1. Pipeline
 The pipeline consists of following image processing functions:
 
-- `grayscale`: Convert the input image to grayscale using `cv2.cvtColor` method.
-- `guassian_blur`: Apply a Gaussian blur to get smoother derivatives of grayscale image using `cv2.GaussianBlur` method.
-- `canny`: Apply [Canny Edge Detection](https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html) to find edges on the blured image using `cv2.Canny` method.
-- `regin_of_interest`: Apply an image mask to limit the detection area.
-- `hough_lines`: Use a [Hough transform](https://docs.opencv.org/3.4/d3/de6/tutorial_js_houghlines.html) to find Hough lines on the masked image using `cv2.HoughLinesP` method.
-- `draw_lines`: Distinguish the left and right lane lines by the slope of the straight line, while excluding infinite slope values. 
+
+1) `grayscale`: Convert the input image to grayscale using `cv2.cvtColor` method.
+2) `guassian_blur`: Apply a Gaussian blur to get smoother derivatives of grayscale image using `cv2.GaussianBlur` method.
+3) `canny`: Apply [Canny Edge Detection](https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html) to find edges on the blured image using `cv2.Canny` method.
+4) `regin_of_interest`: Apply an image mask to limit the detection area.
+5) `hough_lines`: Use a [Hough transform](https://docs.opencv.org/3.4/d3/de6/tutorial_js_houghlines.html) to find Hough lines on the masked image using `cv2.HoughLinesP` method.
+6) `draw_lines`: Distinguish the left and right lane lines by the slope of the straight line, while excluding infinite slope values. 
 Use `np.polyfit` to calculate slope and offset of averaged lane lines respectively. Thus, start and end points of lane lines can be obtained using the fitted function. 
 Use `cv2.line` method to connect left and right lane lines.
-- `weighted_img`: Use `cv2.addWeighted` method to return a image with lines drawn on it.
+7) `weighted_img`: Use `cv2.addWeighted` method to return a image with lines drawn on it.
 
 ### 2. Shortcomings
 The results obtained by processing the challenge video did not meet expectations. Shadows on the road surface and different colored lines in the video affect the accuracy of the algorithm. Therefore, the algorithm is not robust enough.
