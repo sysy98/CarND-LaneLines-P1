@@ -5,13 +5,12 @@ The repository completes the project on [Udacity Self-Driving Car NanoDegree.](h
 The project algorithm is used to identify lane lines on the road in videos using Python and OpenCV.
 ## Demo
 
-<p align="center">
-  <img src="./videos/semantic.gif">
-</p>
-
-<p align="center">
-  <img src="./videos/rviz.gif">
-</p>
+<table>
+<tr>
+<td><img src="./test_videos_output/solidWhiteRight.gif"></td>
+<td><img src="./test_videos_output/solidYellowLeft.gif"></td>
+</tr>
+</table>
  
 ## Setup
 1. install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
