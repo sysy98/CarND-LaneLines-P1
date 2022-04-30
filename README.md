@@ -1,30 +1,43 @@
-# **Finding Lane Lines on the Road**
+# **Finding Lane Lines on the Road** 
+The repo complete the project on [![Udacity Self-Driving Car NanoDegree.](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+The project algorithm is used to identify lane lines on the road in videos using Python and OpenCV.
+![]()
+## Setup
+1. install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+2. Create an environment named `carlines` for the project.
+```sh
+conda env create -f carlines.yml
+```
+3. Activate the environment with the command:
+- Windows:
+```sh
+conda activate carlines
+```
+-Linux:
+```sh
+source activate carlines
+```
+4. Open the `pipeline1.ipynb` in the Jupyter Notebook.
+```sh
+jupyter-notebook
+```
 
-* The goal of this project is **find lane lines on the road**.
+## Overview
+### 1.Pipeline
+The pipeline consists of following image processing functions:
 
-### 1. Pipeline.
+- `grayscale`: Convert the input image to grayscale using `cv2.cvtColor` method.
+- `guassian_blur`: Apply a Gaussian blur to get smoother derivatives of grayscale image using `cv2.GaussianBlur` method.
+- `canny`: Apply [Canny Edge Detection](https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html) to find edges on the blured image using `cv2.Canny` method.
+- `regin_of_interest`: Apply an image mask to limit the detection area.
+- `hough_lines`: Use a [Hough transform](https://docs.opencv.org/3.4/d3/de6/tutorial_js_houghlines.html) to find Hough lines on the masked image using `cv2.HoughLinesP` method.
+- `draw_lines`: Distinguish the left and right lane lines by the slope of the straight line, while excluding infinite slope values. 
+Use `np.polyfit` to calculate slope and offset of averaged lane lines respectively. Thus, start and end points of lane lines can be obtained using the fitted function. 
+Use `cv2.line` method to connect left and right lane lines.
+- `weighted_img`: Use `cv2.addWeighted` method to return a image with lines drawn on it.
 
-My pipeline consisted of 5 steps.
-* First, I converted the images to **grayscale** and used **gassian blur** to get smoother derivatives of image.
-* Second, I used **Canny** detection and set high and low threshold to get edges.
-* Then, I used a **region mask** to limit the detection area.
-* Since theses edges are consist of points, I have to use **Hough transfrom** to find lane lines.
-* At last, I combine line image with original image by using **Weighted image**.
----
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function:
-* Distinguish the left and right lane lines by the slope of the straight line, while excluding infinite slope values.
-* Calculate the average of the four coordinates of the left and right lanes.
-* Used **Polyfit()** calculate slope and offset of lines respectively. And then I can get start and end points of each line.
-  Then connect start and end points.
+### 2. Shortcomings
+The results obtained by processing the challenge video did not meet expectations. Shadows on the road surface and different colored lines in the video affect the accuracy of the algorithm. Therefore, the algorithm is not robust enough.
 
-
-### 2. Shortcomings with my current pipeline
-
-When the video frame changes, the detected lane line will shake.
-
-
-### 3. Possible improvements to my pipeline
-
-* Use **cv2.inRange()** to select lanes first by setting GRB or HSV criterion.
-  Set a mask to identify the yellow and white lines on the road.
-  And use **cv2.bitwise_and(img, img, mask)** get selected image.
+### 3. Possible improvements
+Apply color transforms, perspective transform or other methods.
