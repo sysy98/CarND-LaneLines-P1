@@ -18,8 +18,8 @@ The project algorithm is used to identify lane lines on the road in videos using
 ```sh
 conda env create -f carlines.yml
 ```
-3. Activate the environment with the command:
-4. - Linux:
+3. Activate the environment with the command: 
+- Linux:
 ```sh
 source activate carlines
 ```
