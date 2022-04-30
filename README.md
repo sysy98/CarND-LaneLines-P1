@@ -51,4 +51,4 @@ Use `cv2.line` method to connect left and right lane lines.
 The results obtained by processing the challenge video did not meet expectations. Shadows on the road surface and different colored lines in the video affect the accuracy of the algorithm. Therefore, the algorithm is not robust enough.
 
 ### 3. Possible improvements
-Apply color transforms, perspective transform or other methods.
+Apply color transforms, perspective transforms or other methods.
