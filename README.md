@@ -19,13 +19,13 @@ The project algorithm is used to identify lane lines on the road in videos using
 conda env create -f carlines.yml
 ```
 3. Activate the environment with the command:
+4. - Linux:
+```sh
+source activate carlines
+```
 - Windows:
 ```sh
 conda activate carlines
-```
-- Linux:
-```sh
-source activate carlines
 ```
 4. Open the [Pipeline1.ipynb](Pipeline1.ipynb) in the Jupyter Notebook.
 ```sh
